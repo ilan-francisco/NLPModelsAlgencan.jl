@@ -24,6 +24,7 @@ jobs:
       matrix:
         version:
           - '1.3'
+          - 'nightly'
         os:
           - ubuntu-latest
           - macOS-latest
@@ -38,9 +39,7 @@ jobs:
         uses: Homebrew/actions/setup-homebrew@master
         if: matrix.os == 'macOS-latest'
       - name: Install dependencies macOS
-        run: |
-          brew install gfortran
-          brew install openblas
+        run: brew install openblas
         if: matrix.os == 'macOS-latest'
       - name: Before install linux
         run: sudo apt-get install gfortran liblapack3 liblapack-dev libopenblas-base libopenblas-dev
@@ -51,3 +50,5 @@ jobs:
           arch: ${{ matrix.arch }}
       - uses: julia-actions/julia-buildpkg@v1.1.1
       - uses: julia-actions/julia-runtest@v1.5.1
+      - name: Coveralls GitHub Action
+        uses: coverallsapp/github-action@v1.1.2
