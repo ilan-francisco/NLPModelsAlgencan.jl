@@ -42,7 +42,7 @@ jobs:
           brew install openblas
         if: matrix.os == 'macOS-latest'
       - name: Before install linux
-        run: sudo apt-get gfortran liblapack3 liblapack-dev libopenblas-base libopenblas-dev
+        run: sudo apt-get install gfortran liblapack3 liblapack-dev libopenblas-base libopenblas-dev
         if: matrix.os == 'ubuntu-latest'
       - uses: julia-actions/setup-julia@v1.6.0
         with:
