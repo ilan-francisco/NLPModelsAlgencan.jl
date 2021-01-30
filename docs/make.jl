@@ -13,5 +13,5 @@ makedocs(
 )
 
 deploydocs(
-    repo="github.com/pjssilva/NLPModelsAlgencan.jl.git"
+    repo="github.com/ilan-francisco/NLPModelsAlgencan.jl.git"
 )
